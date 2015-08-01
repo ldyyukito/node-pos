@@ -1,10 +1,11 @@
+var GetDate = require('./getdate.js');
 function Pos() {
 
 }
 
 Pos.prototype.receipt = function(cart) {
 
-  var gettime = new GetData();
+  var gettime = new GetDate();
   var string =
     '***<没钱赚商店>收据***\n' +
     '打印时间：' + gettime.get() + '\n' +
@@ -22,7 +23,6 @@ Pos.prototype.receipt = function(cart) {
 
 Pos.prototype.getItemsString = function(cart) {
   var itemString = '';
-
   var cartItems = cart.cartItems;
   cartItems.forEach(function(val) {
     itemString += '名称：' + val._item[0].name + '，数量：' + val.count + val._item[0].unit + '，单价：' +
@@ -46,4 +46,5 @@ Pos.prototype.getPromotionString = function(cart) {
 
 function formatPrice(price) {
   return price.toFixed(2);
-}
+};
+module.exports = Pos;
